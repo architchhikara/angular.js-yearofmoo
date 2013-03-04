@@ -430,11 +430,12 @@ function $RouteProvider(){
 
               if (isDefined(template = next.template)) {
                 if (isFunction(template)) {
-                  template = template(next.params);
+                  template = template($location.path(), next.params);
                 }
-              } else if (isDefined(template = next.templateUrl)) {
+              }
+              if (!isDefined(template) && isDefined(template = next.templateUrl)) {
                 if (isFunction(template)) {
-                  template = template(next.params);
+                  template = template($location.path(), next.params);
                 }
                 if (isDefined(template)) {
                   next.loadedTemplateUrl = template;

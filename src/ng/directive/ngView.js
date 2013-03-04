@@ -157,7 +157,8 @@ var ngViewDirective = ['$http', '$templateCache', '$route', '$anchorScroll', '$c
           // $anchorScroll might listen on event...
           $anchorScroll();
         } else {
-          clearContent();
+          var link = $compile(element.contents());
+          link(angular.element(document.body).scope());
         }
       }
     }

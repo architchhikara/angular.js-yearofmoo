@@ -14,7 +14,7 @@ files = eval(content.gsub(/\};(\s|\S)*/, '}').
             gsub(/:/, '=>').
             gsub(/\/\//, '#'));
 
-BUILD_DIR = 'build'
+BUILD_DIR = 'package'
 
 task :default => [:package]
 
